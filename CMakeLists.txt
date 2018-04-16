@@ -75,7 +75,7 @@ else()
   set(RELEASE_FLAGS "-Ofast -DNDEBUG -Wno-unused-variable")
   if(NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     # There is a clang bug that does not allow to compile code that uses AES-NI intrinsics if -flto is enabled
-    set(RELEASE_FLAGS "${RELEASE_FLAGS} -flto")
+  #  set(RELEASE_FLAGS "${RELEASE_FLAGS} -flto")
   endif()
   #if(CMAKE_C_COMPILER_ID STREQUAL "GNU" AND NOT MINGW)
   #  set(RELEASE_FLAGS "${RELEASE_FLAGS} -fno-fat-lto-objects")
