@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.6)
 
-set(VERSION "0.1")
+set(VERSION "0.4")
 # Packaged from commit 6be8153a8bddf7be43aca1efb829ba719409787a
 set(COMMIT 6be8153a8b)
 set(REFS " (HEAD -> master)")
@@ -15,6 +15,10 @@ if(APPLE)
 endif()
 
 set(STATIC ${MSVC} CACHE BOOL "Link libraries statically")
+
+if (UNIX AND NOT APPLE)
+   find_package(Threads REQUIRED)
+endif()   
 
 if(MSVC)
   add_definitions("/bigobj /MP /W3 /GS- /D_CRT_SECURE_NO_WARNINGS /wd4996 /wd4345 /D_WIN32_WINNT=0x0600 /DWIN32_LEAN_AND_MEAN /DGTEST_HAS_TR1_TUPLE=0 /D_VARIADIC_MAX=8 /FIinline_c.h /D__SSE4_1__")
